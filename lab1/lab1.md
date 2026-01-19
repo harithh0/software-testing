@@ -1,13 +1,13 @@
 | Test Case | Inputs | Expected Outputs | What the test shows |
 | ---  | ---  | --- |  --- |
-| TCI1  | 2000  | true  | Req 1: it shows that the case when input is divisible by 400  | 
-| TCI2  | 1000   | false  | Req 2: it shows that the case when input is divisible by 100 | 
-| TCI3  | 400   | true  | Req 1: it shows that the case when input is divisible by 400  | 
-| TCI4  | 520   | true  | Req 3: it shows that the case when input is divisible by 4  | 
-| TCI5  | 1948   | true  | Req 3: it shows that the case when input is divisible by 4  | 
-| TCI6  | 950   | false  | Req 4: it shows that the case when input is not divisible by either 400, 100, or 4 | 
-| TCI7  | -48   | false  | Req 4: it shows that the unit handles unexpected or unrealistic values | 
-| TCI8  | 0  | false  | Req 4: it shows that the unit handles unexpected or unrealistic values | 
+| 1  | 2000  | true  | Req 1: it shows that the case when input is divisible by 400  | 
+| 2  | 1000   | false  | Req 2: it shows that the case when input is divisible by 100 | 
+| 3  | 400   | true  | Req 1: it shows that the case when input is divisible by 400  | 
+| 4  | 520   | true  | Req 3: it shows that the case when input is divisible by 4  | 
+| 5  | 1948   | true  | Req 3: it shows that the case when input is divisible by 4  | 
+| 6  | 950   | false  | Req 4: it shows that the case when input is not divisible by either 400, 100, or 4 | 
+| 7  | -48   | false  | Req 4: it shows that the unit handles unexpected or unrealistic values | 
+| 8  | 0  | false  | Req 4: it shows that the unit handles unexpected or unrealistic values | 
 
 
 
