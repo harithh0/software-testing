@@ -1,3 +1,7 @@
+
+Test code path: https://github.com/harithh0/software-testing/blob/master/lab3/software-testing-java-code/src/test/java/com/lab3/calculateStayPriceTest.java
+
+
 | | Inputs |
 | :--- | :--- |
 | TCI 1 | age >= 0 |
