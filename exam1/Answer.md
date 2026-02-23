@@ -79,7 +79,6 @@ Branches to test both true and false outcomes:
 5. kwh > 1500
 6. Tier3 inner condition
 
-Decision table tests achieve full branch coverage.
 
 ---
 
