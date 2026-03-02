@@ -1,3 +1,11 @@
+## Test code
+
+https://github.com/harithh0/software-testing/blob/master/lab4/maven-test/src/test/java/com/baarsch_bytes/LibraryServiceTest.java
+
+run: `mvn -Dtest=LibraryServiceTest test` in root
+
+## Test Design
+
 | EP | Parameter           | Min           | Max | Output    |
 | -- | ------------------- | ------------- | --- | --------- |
 |    | ResourceID          | Null          |     | error     |
