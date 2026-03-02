@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OnlineSalesRevised.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">maven-test</a> &gt; <a href="index.source.html" class="el_package">com.baarsch_bytes</a> &gt; <span class="el_source">OnlineSalesRevised.java</span></div><h1>OnlineSalesRevised.java</h1><pre class="source lang-java linenums">package com.baarsch_bytes;
+
+import com.baarsch_bytes.OnlineSalesOld.Status;
+import static com.baarsch_bytes.OnlineSalesOld.Status.*;
+
+
+<span class="fc" id="L7">public class OnlineSalesRevised {</span>
+
+    /**
+     * Determine whether to give a discount for online sales.
+     * Gold customers get a discount above 80 bonus points.
+     * Other customers get a discount above 120 bonus points.
+     *
+     * @param bonusPoints How many bonus points the customer has accumulated
+     *
+     * @param goldCustomer Whether the customer is a Gold Customer
+     *
+     * @return
+     * DISCOUNT - give a discount&lt;br&gt;
+     * FULL_PRICE - charge the full price&lt;br&gt;
+     * ERROR - invalid inputs
+     */
+    public OnlineSalesOld.Status giveDiscount(long bonusPoints, boolean goldCustomer) {
+<span class="fc" id="L24">        Status rv = ERROR;</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        long threshold = goldCustomer? 80 : 120;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        long thresholdJump = goldCustomer? 20 : 30;</span>
+
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (bonusPoints &gt; 0) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            if (bonusPoints &lt; thresholdJump) {</span>
+<span class="fc" id="L30">                bonusPoints -= threshold;</span>
+            }
+<span class="fc bfc" id="L32" title="All 2 branches covered.">            if (bonusPoints &gt; thresholdJump) {</span>
+<span class="fc" id="L33">                bonusPoints -= threshold;</span>
+            }
+<span class="fc" id="L35">            bonusPoints += 4 * thresholdJump;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            if (bonusPoints &gt; threshold)</span>
+<span class="fc" id="L37">                rv = DISCOUNT;</span>
+            else
+<span class="fc" id="L39">                rv = FULL_PRICE;</span>
+        }
+<span class="fc" id="L41">        return rv;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

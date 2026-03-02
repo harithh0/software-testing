@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.baarsch_bytes.ReserveMyParkTest
+-------------------------------------------------------------------------------
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.390 s -- in com.baarsch_bytes.ReserveMyParkTest

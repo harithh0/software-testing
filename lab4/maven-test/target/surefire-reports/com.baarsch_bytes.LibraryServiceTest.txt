@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.baarsch_bytes.LibraryServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.703 s -- in com.baarsch_bytes.LibraryServiceTest

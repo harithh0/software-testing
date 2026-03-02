@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LibraryService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">maven-test</a> &gt; <a href="index.source.html" class="el_package">com.baarsch_bytes.Library</a> &gt; <span class="el_source">LibraryService.java</span></div><h1>LibraryService.java</h1><pre class="source lang-java linenums">package com.baarsch_bytes.Library;
+
+import com.baarsch_bytes.Exceptions.DatabaseFailureException;
+import com.baarsch_bytes.Exceptions.EmailFailureException;
+
+import java.util.UUID;
+
+public class LibraryService {
+
+    private final EmailProvider emailProvider;
+    private final ResourceRepository resourceRepository;
+
+<span class="fc" id="L13">    public LibraryService(EmailProvider emailProvider, ResourceRepository resourceRepository) {</span>
+<span class="fc" id="L14">        this.emailProvider = emailProvider;</span>
+<span class="fc" id="L15">        this.resourceRepository = resourceRepository;</span>
+<span class="fc" id="L16">    }</span>
+
+    public boolean checkoutResource(UUID resourceId, String memberEmail) throws DatabaseFailureException, EmailFailureException {
+        // ID validation is simpler because UUID cannot be &quot;empty&quot; like a String
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (resourceId == null) return false;</span>
+
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (!resourceRepository.isResourceAvailable(resourceId)) {</span>
+<span class="fc" id="L23">            return false;</span>
+        }
+
+<span class="fc" id="L26">        boolean statusUpdated = resourceRepository.updateStatus(resourceId, false);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if(!statusUpdated) {</span>
+<span class="fc" id="L28">            throw new DatabaseFailureException(&quot;Could not check out item.&quot;);</span>
+        }
+
+<span class="fc" id="L31">        boolean emailSent = emailProvider.sendEmail(memberEmail, &quot;Resource ID: &quot; + resourceId + &quot; checked out.&quot;);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (!emailSent) {</span>
+<span class="fc" id="L33">            throw new EmailFailureException(&quot;Could not send email.&quot;);</span>
+        }
+<span class="fc" id="L35">        return  true;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
